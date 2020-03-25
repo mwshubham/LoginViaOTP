@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_rounded">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_label_detecting_otp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:text="Detecting OTP"
+            android:textColor="#1C1C1C"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:id="@+id/view_divider"
+            android:layout_width="1dp"
+            android:layout_height="13dp"
+            android:layout_marginStart="8dp"
+            android:background="#E4E4E4"
+            app:layout_constraintBottom_toBottomOf="@id/tv_label_detecting_otp"
+            app:layout_constraintStart_toEndOf="@id/tv_label_detecting_otp"
+            app:layout_constraintTop_toTopOf="@id/tv_label_detecting_otp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_second_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="0.30s"
+            android:textColor="#1C1C1C"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_label_detecting_otp"
+            app:layout_constraintStart_toEndOf="@id/view_divider"
+            app:layout_constraintTop_toTopOf="@id/tv_label_detecting_otp"
+            tools:ignore="HardcodedText"
+            tools:text="0.28s" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_cross"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="22dp"
+            android:alpha="0.45"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_vector_clear_24dp"
+            app:tint="#000000" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:alpha="0.6"
+            android:text="We have sent a 4-digit OTP on mobile number:"
+            android:textColor="#1C1C1C"
+            app:layout_constraintEnd_toEndOf="@id/iv_cross"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="@id/tv_label_detecting_otp"
+            app:layout_constraintTop_toBottomOf="@id/tv_label_detecting_otp"
+            tools:ignore="HardcodedText" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_phone_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#1C1C1C"
+            app:layout_constraintStart_toStartOf="@id/tv_label_detecting_otp"
+            app:layout_constraintTop_toBottomOf="@id/tv_label"
+            tools:text="+918688080903" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_change"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="Change"
+            android:textColor="#0475E5"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_phone_no"
+            app:layout_constraintStart_toEndOf="@id/tv_phone_no"
+            app:layout_constraintTop_toTopOf="@id/tv_phone_no"
+            tools:ignore="HardcodedText" />
+
+        <LinearLayout
+            android:id="@+id/ll_otp"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tv_label_detecting_otp"
+            app:layout_constraintTop_toBottomOf="@id/tv_phone_no">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_otp1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_item_otp_view"
+                android:gravity="center"
+                android:hint="-"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="1"
+                android:nextFocusDown="@id/et_otp2"
+                android:nextFocusForward="@id/et_otp2"
+                android:textColor="#1C1C1C"
+                android:textColorHint="#8B8B8B"
+                android:textSize="16sp"
+                tools:background="@drawable/bg_item_otp_view_error"
+                tools:ignore="HardcodedText" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_otp2"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_item_otp_view"
+                android:gravity="center"
+                android:hint="-"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="1"
+                android:nextFocusLeft="@id/et_otp1"
+                android:nextFocusDown="@id/et_otp3"
+                android:nextFocusForward="@id/et_otp3"
+                android:textColor="#1C1C1C"
+                android:textColorHint="#8B8B8B"
+                android:textSize="16sp"
+                tools:background="@drawable/bg_item_otp_view_error"
+                tools:ignore="HardcodedText" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_otp3"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_item_otp_view"
+                android:gravity="center"
+                android:hint="-"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="1"
+                android:nextFocusLeft="@id/et_otp2"
+                android:nextFocusDown="@id/et_otp4"
+                android:nextFocusForward="@id/et_otp4"
+                android:textColor="#1C1C1C"
+                android:textColorHint="#8B8B8B"
+                android:textSize="16sp"
+                tools:background="@drawable/bg_item_otp_view_error"
+                tools:ignore="HardcodedText" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_otp4"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_item_otp_view"
+                android:gravity="center"
+                android:hint="-"
+                android:imeOptions="actionGo"
+                android:inputType="number"
+                android:maxLength="1"
+                android:nextFocusLeft="@id/et_otp3"
+                android:textColor="#1C1C1C"
+                android:textColorHint="#8B8B8B"
+                android:textSize="16sp"
+                tools:background="@drawable/bg_item_otp_view_error"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_invalid_otp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Invalid OTP"
+            android:textColor="#BA1D1D"
+            android:textSize="10sp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@id/tv_label_detecting_otp"
+            app:layout_constraintTop_toBottomOf="@id/ll_otp"
+            tools:ignore="HardcodedText,SmallSp"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_resend_otp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="20dp"
+            android:text="Resend OTP"
+            android:textColor="@color/csl_resend_otp"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll_otp"
+            tools:enabled="false"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:alpha="0.8"
+            android:background="#fff"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:indeterminateTint="#004F9E"
+            android:indeterminateTintMode="src_atop"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="UnusedAttribute"
+            tools:visibility="gone" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+
+
+

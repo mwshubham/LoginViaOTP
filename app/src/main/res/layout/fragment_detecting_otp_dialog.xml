@@ -21,30 +21,6 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="HardcodedText" />
 
-        <View
-            android:id="@+id/view_divider"
-            android:layout_width="1dp"
-            android:layout_height="13dp"
-            android:layout_marginStart="8dp"
-            android:background="#E4E4E4"
-            app:layout_constraintBottom_toBottomOf="@id/tv_label_detecting_otp"
-            app:layout_constraintStart_toEndOf="@id/tv_label_detecting_otp"
-            app:layout_constraintTop_toTopOf="@id/tv_label_detecting_otp" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_second_left"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="0.30s"
-            android:textColor="#1C1C1C"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@id/tv_label_detecting_otp"
-            app:layout_constraintStart_toEndOf="@id/view_divider"
-            app:layout_constraintTop_toTopOf="@id/tv_label_detecting_otp"
-            tools:ignore="HardcodedText"
-            tools:text="0.28s" />
-
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_cross"
             android:layout_width="24dp"
@@ -214,7 +190,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ll_otp"
-            tools:enabled="false"
+            tools:enabled="true"
             tools:ignore="HardcodedText" />
 
         <View

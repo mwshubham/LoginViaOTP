@@ -3,6 +3,7 @@
 package com.example.loginviaotp
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -20,6 +21,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun init() {
+        val appSignatureHelper = AppSignatureHelper(this)
+        Log.v(TAG, appSignatureHelper.appSignatures[0])
         setSupportActionBar(binding.toolbar)
     }
 
@@ -36,4 +39,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    companion object {
+        val TAG: String = MainActivity::class.java.simpleName
+    }
 }

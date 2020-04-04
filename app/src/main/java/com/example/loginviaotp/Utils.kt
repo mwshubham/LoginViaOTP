@@ -34,4 +34,21 @@ object Utils {
         }
         imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
+
+    fun getOtp(sms: String): String {
+        var isDigitFound = false
+        val stringArr = sms.split("").toTypedArray()
+        val builder = StringBuilder()
+        for (string in stringArr) {
+            if (string.matches(Regex("[0-9]+"))) {
+                builder.append(string)
+                isDigitFound = true
+            } else {
+                if (isDigitFound) {
+                    return builder.toString()
+                }
+            }
+        }
+        return ""
+    }
 }

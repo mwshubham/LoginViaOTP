@@ -6,6 +6,8 @@ import android.app.Activity
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.os.Handler
+import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.core.content.ContextCompat
@@ -13,8 +15,9 @@ import androidx.core.widget.doOnTextChanged
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
 import com.example.loginviaotp.databinding.FragmentDetectingOtpDialogBinding
+import com.google.android.gms.auth.api.phone.SmsRetriever
 
-class DetectingOtpDialogFragment : DialogFragment() {
+class DetectingOtpDialogFragment : DialogFragment(), OtpListener {
     private val phoneNo: String
         get() = arguments!!.getString("phoneNo")!!
 
@@ -57,6 +60,18 @@ class DetectingOtpDialogFragment : DialogFragment() {
     fun init() {
         isCancelable = false
         binding.tvPhoneNo.text = phoneNo
+
+        val client = SmsRetriever.getClient(context!!)
+        val task = client.startSmsRetriever()
+        task.addOnSuccessListener {
+            Log.i(TAG, "SMS RETRIEVER TASK SUCCESSFULLY ADDED")
+        }
+
+        task.addOnFailureListener {
+            Log.i(TAG, "SMS RETRIEVER TASK FAILED")
+        }
+
+        MySMSBroadcastReceiver.otpListener = this
     }
 
     fun initControl() {
@@ -203,8 +218,20 @@ class DetectingOtpDialogFragment : DialogFragment() {
     }
 
     fun onVerifiedSuccessfully() {
-        dialog?.cancel()
-        Toast.makeText(context!!, "OTP Verified Successfully.", Toast.LENGTH_LONG).show()
+        binding.bgProgressBar.visibility = View.VISIBLE
+        binding.progressBar.visibility = View.VISIBLE
+        Handler().postDelayed({
+            dialog?.cancel()
+            Toast.makeText(context!!, "OTP Verified Successfully.", Toast.LENGTH_LONG).show()
+        }, 2000)
+    }
+
+    override fun onOtpReceived(otp: String) {
+        val otpArr = otp.toCharArray()
+        binding.etOtp1.setText(otpArr[0].toString())
+        binding.etOtp2.setText(otpArr[1].toString())
+        binding.etOtp3.setText(otpArr[2].toString())
+        binding.etOtp4.setText(otpArr[3].toString())
     }
 
 }

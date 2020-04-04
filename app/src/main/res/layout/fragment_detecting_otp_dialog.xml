@@ -194,15 +194,17 @@
             tools:ignore="HardcodedText" />
 
         <View
+            android:id="@+id/bg_progress_bar"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:alpha="0.8"
+            android:alpha="0.9"
             android:background="#fff"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
 
         <ProgressBar
             android:id="@+id/progress_bar"
@@ -217,7 +219,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="UnusedAttribute"
-            tools:visibility="gone" />
+            tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

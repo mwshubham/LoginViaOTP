@@ -66,11 +66,9 @@ class DetectingOtpDialogFragment : DialogFragment(), OtpListener {
         task.addOnSuccessListener {
             Log.i(TAG, "SMS RETRIEVER TASK SUCCESSFULLY ADDED")
         }
-
         task.addOnFailureListener {
             Log.i(TAG, "SMS RETRIEVER TASK FAILED")
         }
-
         MySMSBroadcastReceiver.otpListener = this
     }
 

@@ -50,13 +50,11 @@ public class AppSignatureHelper extends ContextWrapper {
 
     public ArrayList<String> getAppSignatures() {
         ArrayList<String> appCodes = new ArrayList<>();
-
         try {
             // Get all package signatures for the current package
             String packageName = getPackageName();
             PackageManager packageManager = getPackageManager();
-            Signature[] signatures = packageManager.getPackageInfo(packageName,
-                    PackageManager.GET_SIGNATURES).signatures;
+            Signature[] signatures = packageManager.getPackageInfo(packageName, PackageManager.GET_SIGNATURES).signatures;
 
             // For each signature create a compatible hash
             for (Signature signature : signatures) {
@@ -64,9 +62,7 @@ public class AppSignatureHelper extends ContextWrapper {
                 if (hash != null) {
                     appCodes.add(String.format("%s", hash));
                 }
-
                 Log.v(TAG, "Hash " + hash);
-
             }
         } catch (PackageManager.NameNotFoundException e) {
             Log.e(TAG, "Unable to find package to obtain hash.", e);

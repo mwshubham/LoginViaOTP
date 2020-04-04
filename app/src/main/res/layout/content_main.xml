@@ -21,7 +21,7 @@
             android:gravity="center"
             android:paddingStart="24dp"
             android:paddingEnd="24dp"
-            android:text="Part 1: Creating a perfect login via OTP process"
+            android:text="Part 2: Creating a perfect login via OTP process"
             android:textColor="#fff"
             android:textSize="22sp"
             android:textStyle="bold"
